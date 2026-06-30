@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Germax Media Kenya – eGP Registration & Tender Consulting Kenya</title>
+  <meta name="description" content="Germax Media Kenya helps Kenyan businesses register on eProcurement portals, prepare winning tender documents, and navigate government procurement. Based in Nairobi." />
+  <meta name="keywords" content="eGP registration Kenya, tender documents Nairobi, government procurement Kenya, eProcurement portal registration" />
+  <meta property="og:title" content="Germax Media Kenya – eGP & Tender Consulting" />
+  <meta property="og:description" content="We handle your eGP registration and tender documents so you can focus on winning contracts." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== TOKENS ===== */
+    :root {
+      --ink:      #0f1923;
+      --ink-soft: #3d4f5e;
+      --paper:    #f7f8f9;
+      --white:    #ffffff;
+      --teal:     #0a7c6e;
+      --teal-mid: #0d9b89;
+      --teal-lite:#e0f4f1;
+      --gold:     #c8922a;
+      --gold-lite:#fdf3e3;
+      --border:   #dce3e8;
+      --radius:   10px;
+      --max:      1080px;
+      --font-head:'Sora', sans-serif;
+      --font-body:'Inter', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--ink); background: var(--white); line-height: 1.65; }
+    img  { max-width: 100%; display: block; }
+    a    { color: inherit; text-decoration: none; }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .btn {
+      display: inline-block;
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.13); }
+    .btn-primary  { background: var(--teal); color: var(--white); }
+    .btn-outline  { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
+    .btn-gold     { background: var(--gold); color: var(--white); }
+    .section-tag  {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-lite);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 540px;
+    }
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--teal);
+    }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-head);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
+      color: var(--ink-soft);
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); background: var(--teal-lite); }
+    .nav-cta { font-size: 0.85rem !important; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+    .hamburger span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; display: block; transition: all 0.25s; }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px 20px;
+      gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 6px;
+      color: var(--ink-soft);
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--teal); background: var(--teal-lite); }
+
+    /* ===== HOME HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0a7c6e 0%, #0d9b89 60%, #0f1923 100%);
+      padding: 90px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 22px;
+      font-family: var(--font-head);
+      letter-spacing: 0.04em;
+    }
+    .hero-badge::before { content: '🇰🇪'; }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 22px;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 500px;
+      margin-bottom: 36px;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 16px;
+      padding: 28px 24px;
+      width: 220px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .hero-card .num {
+      font-family: var(--font-head);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-card .num span { color: var(--gold); font-size: 1.4rem; }
+    .hero-card p { font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-top: 6px; }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+    }
+    .trust-bar-inner {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .trust-icon { font-size: 1.2rem; }
+
+    /* ===== SERVICES SNAPSHOT ===== */
+    .services-snap { padding: 80px 0; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .service-card:hover { border-color: var(--teal); box-shadow: 0 4px 20px rgba(10,124,110,0.1); }
+    .service-icon { font-size: 2rem; margin-bottom: 14px; }
+    .service-card h3 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .service-card p { font-size: 0.88rem; color: var(--ink-soft); }
+    .service-card .arrow {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--teal);
+      font-family: var(--font-head);
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works { background: var(--paper); padding: 80px 0; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 0; margin-top: 48px; }
+    .step { padding: 28px 24px; position: relative; }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -10px;
+      top: 28px;
+      font-size: 1.4rem;
+      color: var(--teal-mid);
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .step h4 { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .step p  { font-size: 0.85rem; color: var(--ink-soft); }
+
+    /* ===== CTA BAND ===== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--ink) 0%, #1a2f3d 100%);
+      padding: 70px 0;
+    }
+    .cta-band-inner { text-align: center; }
+    .cta-band h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .cta-band p { color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+    .cta-band .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===== ABOUT PAGE ===== */
+    .page-hero {
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      padding: 60px 0 50px;
+    }
+    .page-hero h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 14px; }
+    .page-hero p { font-size: 1.05rem; color: var(--ink-soft); max-width: 560px; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding: 70px 0;
+      align-items: start;
+    }
+    .about-text h2 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; }
+    .about-text p  { color: var(--ink-soft); margin-bottom: 14px; font-size: 0.97rem; }
+    .values { background: var(--paper); border-radius: var(--radius); padding: 32px; }
+    .values h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
+    .value-item { display: flex; gap: 14px; margin-bottom: 18px; }
+    .value-icon { width: 36px; height: 36px; background: var(--teal-lite); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .value-item h4 { font-family: var(--font-head); font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+    .value-item p  { font-size: 0.83rem; color: var(--ink-soft); }
+    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 60px; padding-bottom: 70px; }
+    .stat-box { background: var(--teal); border-radius: var(--radius); padding: 28px; text-align: center; color: var(--white); }
+    .stat-box .n { font-family: var(--font-head); font-size: 2.2rem; font-weight: 700; }
+    .stat-box .l { font-size: 0.82rem; opacity: 0.8; margin-top: 4px; }
+
+    /* ===== SERVICES FULL ===== */
+    .services-list { padding: 70px 0; }
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .service-block:last-child { border-bottom: none; }
+    .sb-left { }
+    .sb-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .sb-left h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--teal); }
+    .price-badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--gold-lite);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .sb-right h4 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .sb-right p  { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 14px; }
+    .include-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .include-list li { font-size: 0.88rem; color: var(--ink-soft); display: flex; align-items: flex-start; gap: 8px; }
+    .include-list li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+
+    /* ===== FAQ ===== */
+    .faq-section { padding: 70px 0; max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-head);
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .faq-q .chevron { font-size: 1.1rem; color: var(--teal); transition: transform 0.25s; flex-shrink: 0; }
+    .faq-q.open .chevron { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-a.open { max-height: 400px; }
+    .faq-a p { font-size: 0.92rem; color: var(--ink-soft); padding-bottom: 20px; line-height: 1.7; }
+
+    /* ===== CONTACT ===== */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      padding: 70px 0;
+      align-items: start;
+    }
+    .contact-info h2 { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; margin-bottom: 14px; }
+    .contact-info p  { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 28px; }
+    .contact-detail { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .cd-icon { width: 42px; height: 42px; background: var(--teal-lite); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .cd-text strong { font-family: var(--font-head); font-size: 0.82rem; color: var(--ink-soft); display: block; }
+    .cd-text a, .cd-text span { font-size: 0.95rem; font-weight: 600; color: var(--teal); }
+    .contact-form { background: var(--paper); border-radius: 14px; padding: 36px; }
+    .contact-form h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 6px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.93rem;
+      color: var(--ink);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--teal); }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    #form-success {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      color: var(--teal);
+      font-family: var(--font-head);
+      font-weight: 600;
+    }
+    #form-success .big { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      padding: 50px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .logo { color: var(--white); font-size: 1.1rem; margin-bottom: 10px; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.6; }
+    .footer-col h4 { font-family: var(--font-head); font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 0.85rem; transition: color 0.15s; }
+    .footer-col ul li a:hover { color: var(--teal-mid); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 200;
+      background: #25d366;
+      color: var(--white);
+      border-radius: 50px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .wa-float:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+    .wa-float svg { width: 22px; height: 22px; fill: currentColor; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .service-block { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .step::after { display: none; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
+      .trust-bar-inner { gap: 20px; flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">Germax<span>Media</span> Kenya</div>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+      <li><a href="#" class="nav-link" data-page="about">About</a></li>
+      <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+      <li><a href="#" class="nav-link" data-page="faqs">FAQs</a></li>
+      <li><a href="#" class="nav-link nav-cta btn btn-primary" data-page="contact">Get Started</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" class="nav-link active" data-page="home">Home</a>
+    <a href="#" class="nav-link" data-page="about">About Us</a>
+    <a href="#" class="nav-link" data-page="services">Services</a>
+    <a href="#" class="nav-link" data-page="faqs">FAQs</a>
+    <a href="#" class="nav-link" data-page="contact">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<div id="home" class="page active">
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-badge">Serving Kenyan Businesses Since 2018</div>
+        <h1>Win Government Contracts.<br>Start with <em>eGP Registration.</em></h1>
+        <p>We handle your eProcurement portal setup, tender documents, and compliance paperwork — so you can focus on growing your business.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-gold nav-link" data-page="contact">Start Your Registration</a>
+          <a href="#" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);" data-page="services">See What We Do</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="num">200<span>+</span></div>
+        <p>Businesses registered on eGP portals successfully</p>
+        <div style="margin-top:20px;">
+          <div class="num" style="font-size:1.8rem;">98<span style="font-size:1rem;">%</span></div>
+          <p>First-attempt approval rate for our clients</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="container trust-bar-inner">
+      <div class="trust-item"><span class="trust-icon">🏛️</span> Registered on PPRA Kenya</div>
+      <div class="trust-item"><span class="trust-icon">📋</span> PPP & AGPO Specialists</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> 24–48 hr Turnaround</div>
+      <div class="trust-item"><span class="trust-icon">🔒</span> Documents Handled Confidentially</div>
+    </div>
+  </div>
+
+  <section class="services-snap">
+    <div class="container">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Everything You Need to<br>Compete for Tenders</h2>
+      <p class="section-sub">From first-time registration to full bid support — we cover every step of the procurement process.</p>
+      <div class="services-grid">
+        <div class="service-card" onclick="goTo('services')">
+          <div class="service-icon">🖥️</div>
+          <h3>eGP Portal Registration</h3>
+          <p>We register your business on the Government of Kenya eProcurement portals — correctly, first time.</p>
+          <span class="arrow">Learn more →</span>
+        </div>
+        <div class="service-card" onclick="goTo('services')">
+          <div class="service-icon">📄</div>
+          <h3>Tender Document Preparation</h3>
+          <p>Professionally written, compliant bid documents that meet every evaluation criterion.</p>
+          <span class="arrow">Learn more →</span>
+        </div>
+        <div class="service-card" onclick="goTo('services')">
+          <div class="service-icon">🏷️</div>
+          <h3>AGPO Registration</h3>
+          <p>Access the 30% procurement preference reserved for Youth, Women, and Persons with Disability.</p>
+          <span class="arrow">Learn more →</span>
+        </div>
+        <div class="service-card" onclick="goTo('services')">
+          <div class="service-icon">🔄</div>
+          <h3>Compliance Renewals</h3>
+          <p>Timely renewal of your tax compliance, NCA certificates, and other mandatory documents.</p>
+          <span class="arrow">Learn more →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-tag">How It Works</div>
+      <h2 class="section-title">From Enquiry to Approval<br>in 4 Simple Steps</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Contact Us</h4>
+          <p>WhatsApp or fill our form. We respond within 2 hours during business hours.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Send Documents</h4>
+          <p>We give you a simple checklist. You send copies via WhatsApp or email.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>We Handle It</h4>
+          <p>Our team completes the registration or tender document preparation for you.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>You're Ready</h4>
+          <p>Receive your credentials or completed documents within 24–48 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <h2>Ready to Register on the eGP Portal?</h2>
+      <p>Speak to our team today — no appointment needed, no hidden fees.</p>
+      <div class="ctas">
+        <a href="#" class="btn btn-gold nav-link" data-page="contact">Contact Us Now</a>
+        <a href="#" class="btn btn-outline" style="color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.3);" data-page="faqs">Read FAQs First</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<div id="about" class="page">
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-tag">About Us</div>
+      <h1>Kenya's Trusted Procurement Partner</h1>
+      <p>We've been helping Kenyan businesses navigate government procurement since 2018 — from SMEs in Nairobi to county suppliers across the country.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Who We Are</h2>
+        <p>Germax Media Kenya is a Nairobi-based consultancy specialising in government eProcurement registration and tender services. We started with a simple observation: too many capable Kenyan businesses were losing contracts not because of poor performance, but because of paperwork.</p>
+        <p>Our team combines procurement expertise with practical on-the-ground knowledge of how Kenya's government purchasing systems actually work — from the PPRA portal to county-level tenders.</p>
+        <p>We work with businesses of all sizes: first-time applicants, established suppliers looking to expand their registered categories, and companies seeking the AGPO advantage.</p>
+        <a href="#" class="btn btn-primary nav-link" data-page="contact" style="margin-top:10px;">Talk to Our Team</a>
+      </div>
+      <div class="values">
+        <h3>Our Values</h3>
+        <div class="value-item">
+          <div class="value-icon">🎯</div>
+          <div>
+            <h4>Accuracy First</h4>
+            <p>Errors in procurement documents cost you contracts. We check everything twice before submission.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">⚡</div>
+          <div>
+            <h4>Speed Without Shortcuts</h4>
+            <p>24–48 hour turnaround — without cutting corners on compliance or quality.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🔍</div>
+          <div>
+            <h4>Full Transparency</h4>
+            <p>You always know where your documents are and what's happening. No chasing us for updates.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🤝</div>
+          <div>
+            <h4>Built for Kenyan Business</h4>
+            <p>We understand local systems, deadlines, and requirements — not generic advice from abroad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="n">200+</div>
+        <div class="l">Businesses Registered</div>
+      </div>
+      <div class="stat-box" style="background:var(--gold);">
+        <div class="n">7+</div>
+        <div class="l">Years in Procurement</div>
+      </div>
+      <div class="stat-box">
+        <div class="n">98%</div>
+        <div class="l">First-Attempt Approval Rate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SERVICES ==================== -->
+<div id="services" class="page">
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-tag">Our Services</div>
+      <h1>Procurement Services Built<br>for Kenyan Businesses</h1>
+      <p>Everything from first-time eGP setup to full bid document preparation — with transparent pricing and fast turnaround.</p>
+    </div>
+  </div>
+
+  <div class="container services-list">
+    <div class="service-block">
+      <div class="sb-left">
+        <div class="sb-icon">🖥️</div>
+        <h3>eGP Portal Registration</h3>
+        <span class="price-badge">Most Popular</span>
+      </div>
+      <div class="sb-right">
+        <h4>Register Your Business on Kenya's Government Portals</h4>
+        <p>We handle full registration on the Government of Kenya eProcurement (eGP) portal and related procurement systems. This is the mandatory first step to bid on any national government tender.</p>
+        <ul class="include-list">
+          <li>Business profile creation and verification</li>
+          <li>Upload of all required company documents</li>
+          <li>Category selection aligned to your business type</li>
+          <li>Credential delivery and portal walkthrough</li>
+          <li>Corrections and resubmission if required at no extra charge</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="sb-left">
+        <div class="sb-icon">📄</div>
+        <h3>Tender Document Preparation</h3>
+        <span class="price-badge">High ROI</span>
+      </div>
+      <div class="sb-right">
+        <h4>Professional Bid Documents That Meet Every Criterion</h4>
+        <p>We prepare complete tender submission packages — technical proposals, financial bids, and all supporting documentation — tailored to the specific requirements of each tender notice.</p>
+        <ul class="include-list">
+          <li>Tender specification analysis and response mapping</li>
+          <li>Technical proposal writing</li>
+          <li>Bill of Quantities (BQ) preparation</li>
+          <li>Compliance checklist completion</li>
+          <li>Submission review before you submit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="sb-left">
+        <div class="sb-icon">🏷️</div>
+        <h3>AGPO Registration</h3>
+      </div>
+      <div class="sb-right">
+        <h4>Unlock the 30% Government Procurement Preference</h4>
+        <p>The Access to Government Procurement Opportunities (AGPO) programme reserves 30% of government tenders for businesses owned by Youth (18–35), Women, and Persons with Disability. We register you quickly and correctly.</p>
+        <ul class="include-list">
+          <li>Eligibility check and category confirmation</li>
+          <li>Online application and document upload</li>
+          <li>Certificate acquisition and renewal support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="sb-left">
+        <div class="sb-icon">🔄</div>
+        <h3>Compliance Document Renewals</h3>
+      </div>
+      <div class="sb-right">
+        <h4>Never Miss a Renewal Deadline Again</h4>
+        <p>Expired compliance certificates can disqualify your bid at the last minute. We monitor and renew your mandatory documents before deadlines hit.</p>
+        <ul class="include-list">
+          <li>KRA Tax Compliance Certificate renewal</li>
+          <li>NCA (National Construction Authority) certificates</li>
+          <li>Business registration renewals</li>
+          <li>NSSF and NHIF clearance letters</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <div class="sb-left">
+        <div class="sb-icon">🏢</div>
+        <h3>County Tender Registration</h3>
+      </div>
+      <div class="sb-right">
+        <h4>Register as a Supplier with County Governments</h4>
+        <p>Kenya's 47 counties run their own procurement portals and supplier databases. We register you with the county governments relevant to your business location and service area.</p>
+        <ul class="include-list">
+          <li>County portal registration (Nairobi, Kiambu, Mombasa, and others)</li>
+          <li>Supplier category selection per county requirements</li>
+          <li>Document preparation for county-specific compliance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <h2>Not Sure Which Service You Need?</h2>
+      <p>Send us a WhatsApp message — we'll tell you exactly what's required for your situation in minutes.</p>
+      <div class="ctas">
+        <a href="https://wa.me/254714963666?text=Hi%20Germax%20Media%20Kenya%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="btn btn-gold">Chat on WhatsApp</a>
+        <a href="#" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);" data-page="contact">Send Us a Message</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== FAQs ==================== -->
+<div id="faqs" class="page">
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-tag">FAQs</div>
+      <h1>Common Questions Answered</h1>
+      <p>Everything you need to know about eGP registration and tendering in Kenya — answered plainly.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="faq-section">
+
+      <div class="faq-item">
+        <button class="faq-q">What is the eGP portal and why do I need to register? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>The eGP (electronic Government Procurement) portal is the Government of Kenya's online system for purchasing goods and services. Any business that wants to supply to national government ministries and agencies must be registered on this portal. Without registration, you cannot access tender notices or submit bids for national government contracts.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How long does eGP registration take? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>Once we receive all your required documents, we typically complete registration within 24–48 business hours. The government portal itself may take 1–3 additional days to approve your account. We'll keep you updated throughout the process.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What documents do I need to provide? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>The exact requirements depend on your business type, but commonly needed documents include: Certificate of Incorporation or Business Registration, KRA PIN Certificate, Tax Compliance Certificate, CR12 (for limited companies), National ID of directors, and company bank details. We'll send you a specific checklist once you contact us.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Do I qualify for AGPO registration? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>AGPO is available to businesses where the majority ownership (at least 70%) belongs to Youth (citizens aged 18–35), Women, or Persons with Disability. The business must also be registered in Kenya and have a valid Tax Compliance Certificate. Contact us and we'll confirm your eligibility quickly.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Can you help me find tenders to apply for? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>Yes — once you're registered, we can help you identify relevant open tenders on the eGP portal and county portals that match your business category. We can also prepare your bid documents for specific tenders you want to pursue.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What if my registration application is rejected? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>If your application is rejected due to a documentation issue, we correct and resubmit at no extra charge. Our 98% first-attempt approval rate means this rarely happens — but if it does, we handle it for you.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How do your fees work? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>We charge a flat service fee per service — there are no hidden costs or commissions on contracts you win. Fees vary depending on the complexity of the work (for example, a standard eGP registration costs less than full tender document preparation). Contact us for a quote specific to your needs.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is my business information kept confidential? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>Absolutely. All documents and business information you share with us are handled strictly for the purpose of your registration or tender application. We do not share your details with third parties under any circumstances.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Do you work with businesses outside Nairobi? <span class="chevron">▾</span></button>
+        <div class="faq-a"><p>Yes. We serve businesses across Kenya. All communication and document exchange can be done via WhatsApp and email, so your physical location doesn't matter. We've helped clients in Mombasa, Kisumu, Nakuru, Eldoret, and many other counties.</p></div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; padding: 0 0 70px;">
+      <p style="color:var(--ink-soft); margin-bottom:20px;">Still have a question not answered here?</p>
+      <a href="#" class="btn btn-primary nav-link" data-page="contact">Ask Us Directly</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<div id="contact" class="page">
+  <div class="page-hero">
+    <div class="container">
+      <div class="section-tag">Contact Us</div>
+      <h1>Let's Get You Registered</h1>
+      <p>Fill the form or send us a WhatsApp — we respond within 2 hours during business hours.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>Whether you're ready to register or just exploring your options, we're happy to talk you through what you need — no pressure, no commitment.</p>
+
+        <div class="contact-detail">
+          <div class="cd-icon">📱</div>
+          <div class="cd-text">
+            <strong>WhatsApp (Fastest)</strong>
+            <a href="https://wa.me/254714963666" target="_blank">+254 714 963 666</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📧</div>
+          <div class="cd-text">
+            <strong>Email</strong>
+            <a href="mailto:germaxmedia@gmail.com">germaxmedia@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📍</div>
+          <div class="cd-text">
+            <strong>Location</strong>
+            <span>Nairobi, Kenya</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">🕐</div>
+          <div class="cd-text">
+            <strong>Business Hours</strong>
+            <span>Mon–Fri, 8 AM – 6 PM EAT</span>
+          </div>
+        </div>
+
+        <div style="margin-top:30px; background:var(--teal-lite); border-radius:10px; padding:20px;">
+          <p style="font-family:var(--font-head); font-size:0.85rem; font-weight:700; color:var(--teal); margin-bottom:6px;">⚡ Fastest response</p>
+          <p style="font-size:0.88rem; color:var(--ink-soft);">WhatsApp us directly — most clients get a reply within 30 minutes during working hours.</p>
+          <a href="https://wa.me/254714963666?text=Hi%20Germax%20Media%20Kenya%2C%20I%20need%20help%20with%20eGP%20registration." target="_blank" class="btn btn-primary" style="margin-top:14px; font-size:0.85rem; padding:10px 20px;">Open WhatsApp Chat</a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <div id="form-success">
+          <span class="big">✅</span>
+          Message received! We'll get back to you within 2 hours.
+        </div>
+        <!-- Replace YOUR_FORM_ID below with your Formspree form ID after signing up at formspree.io -->
+        <form id="contactForm" action="https://formspree.io/f/maqgdyqa" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" name="name" required placeholder="Jane Wanjiku" />
+            </div>
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" required placeholder="+254 7XX XXX XXX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="jane@company.co.ke" />
+          </div>
+          <div class="form-group">
+            <label>Service You Need *</label>
+            <select name="service" required>
+              <option value="">— Select a service —</option>
+              <option>eGP Portal Registration</option>
+              <option>Tender Document Preparation</option>
+              <option>AGPO Registration</option>
+              <option>Compliance Document Renewal</option>
+              <option>County Tender Registration</option>
+              <option>Not sure — I need advice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Us More (Optional)</label>
+            <textarea name="message" placeholder="E.g. I'm a new company, not yet registered anywhere. I want to start bidding on national government tenders."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; font-size:0.95rem; padding:14px;">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Germax<span>Media</span> Kenya</div>
+        <p style="margin-top:10px;">Helping Kenyan businesses win government contracts through professional eGP registration and tender services.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" class="nav-link" data-page="services">eGP Registration</a></li>
+          <li><a href="#" class="nav-link" data-page="services">Tender Documents</a></li>
+          <li><a href="#" class="nav-link" data-page="services">AGPO Registration</a></li>
+          <li><a href="#" class="nav-link" data-page="services">Compliance Renewals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+          <li><a href="#" class="nav-link" data-page="faqs">FAQs</a></li>
+          <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Germax Media Kenya. All rights reserved.</span>
+      <span>Nairobi, Kenya · germaxmedia@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/254714963666?text=Hi%20Germax%20Media%20Kenya%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Chat on WhatsApp
+</a>
+
+<script>
+  // ===== PAGE ROUTING =====
+  function goTo(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+    const target = document.getElementById(pageId);
+    if (target) { target.classList.add('active'); window.scrollTo(0, 0); }
+    document.querySelectorAll(`.nav-link[data-page="${pageId}"]`).forEach(a => a.classList.add('active'));
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const page = this.dataset.page;
+      if (page) goTo(page);
+    });
+  });
+
+  // ===== HAMBURGER =====
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+
+  // ===== FAQ ACCORDION =====
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const answer = this.nextElementSibling;
+      const isOpen = this.classList.contains('open');
+      document.querySelectorAll('.faq-q').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+      if (!isOpen) { this.classList.add('open'); answer.classList.add('open'); }
+    });
+  });
+
+  // ===== CONTACT FORM =====
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = this;
+    const btn = form.querySelector('button[type=submit]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        throw new Error('Network error');
+      }
+    } catch {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      alert('There was an error. Please WhatsApp us directly at the number shown on this page.');
+    }
+  });
+</script>
+</body>
+</html>
