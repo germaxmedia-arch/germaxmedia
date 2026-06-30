@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://germaxmedia-arch.github.io/germaxmedia/sitemap.xml
