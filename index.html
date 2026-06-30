@@ -188,7 +188,7 @@
     .hero {
       background:
         linear-gradient(135deg, rgba(10,124,110,0.92) 0%, rgba(13,155,137,0.88) 60%, rgba(15,25,35,0.94) 100%),
-        url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1741991110666-88115e724741?fm=jpg&q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
       padding: 90px 0 80px;
       position: relative;
       overflow: hidden;
@@ -308,6 +308,30 @@
       font-family: var(--font-head);
     }
 
+    /* ===== KENYA PHOTO BAND ===== */
+    .photo-band {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+    }
+    .photo-band img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-band-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,25,35,0.1) 0%, rgba(15,25,35,0.85) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 36px 0;
+    }
+    .photo-band-text h3 {
+      font-family: var(--font-head);
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .photo-band-text p { color: rgba(255,255,255,0.82); font-size: 0.95rem; max-width: 480px; }
+
     /* ===== HOW IT WORKS ===== */
     .how-it-works { background: var(--paper); padding: 80px 0; }
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 0; margin-top: 48px; }
@@ -352,7 +376,40 @@
     .cta-band p { color: rgba(255,255,255,0.7); margin-bottom: 32px; }
     .cta-band .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-    /* ===== ABOUT PAGE ===== */
+    /* ===== PAGE BANNER ===== */
+    .page-banner {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .page-banner img { width: 100%; height: 100%; object-fit: cover; }
+    .page-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(10,124,110,0.88) 0%, rgba(15,25,35,0.82) 100%);
+      display: flex;
+      align-items: center;
+    }
+    .page-banner-text {
+      color: var(--white);
+    }
+    .page-banner-text .eyebrow {
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .page-banner-text h1 {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    /* ===== PAGE HERO (text-only, used below banner) ===== */
     .page-hero {
       background: var(--paper);
       border-bottom: 1px solid var(--border);
@@ -540,6 +597,8 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
+      .page-banner { height: 160px; }
+      .photo-band { height: 280px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .hero-inner { grid-template-columns: 1fr; }
@@ -653,6 +712,16 @@
     </div>
   </section>
 
+  <section class="photo-band">
+    <img src="https://images.unsplash.com/photo-1741991110666-88115e724741?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="Nairobi skyline, Kenya" />
+    <div class="photo-band-overlay">
+      <div class="container photo-band-text">
+        <h3>Built in Nairobi, Trusted Across Kenya</h3>
+        <p>From the capital to county governments nationwide — we know how Kenyan procurement actually works.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="how-it-works">
     <div class="container">
       <div class="section-tag">How It Works</div>
@@ -697,10 +766,19 @@
 
 <!-- ==================== ABOUT ==================== -->
 <div id="about" class="page">
+  <div class="page-banner">
+    <img src="https://images.unsplash.com/photo-1521766794531-959971b1f444?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="Giraffes in Maasai Mara, Kenya" />
+    <div class="page-banner-overlay">
+      <div class="container page-banner-text">
+        <span class="eyebrow">About Germax Media Kenya</span>
+        <h1>Rooted in Kenya, Built for Kenyan Business</h1>
+      </div>
+    </div>
+  </div>
   <div class="page-hero">
     <div class="container">
       <div class="section-tag">About Us</div>
-      <h1>Kenya's Trusted Procurement Partner</h1>
+      <h2 style="font-family:var(--font-head); font-size:clamp(1.4rem,3vw,2rem); font-weight:700; margin-bottom:14px;">Kenya's Trusted Procurement Partner</h2>
       <p>We've been helping Kenyan businesses navigate government procurement since 2018 — from SMEs in Nairobi to county suppliers across the country.</p>
     </div>
   </div>
@@ -764,17 +842,26 @@
     </div>
 
     <div style="border-radius:14px; overflow:hidden; margin-bottom:70px;">
-      <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=1400&q=80" alt="Business professionals reviewing documents" style="width:100%; height:320px; object-fit:cover;" />
+      <img src="https://images.unsplash.com/photo-1664181220731-06219378d8c7?fm=jpg&q=80&w=1600&auto=format&fit=crop" alt="Nairobi city street, Kenya" style="width:100%; height:320px; object-fit:cover;" />
     </div>
   </div>
 </div>
 
 <!-- ==================== SERVICES ==================== -->
 <div id="services" class="page">
+  <div class="page-banner">
+    <img src="https://images.unsplash.com/photo-1521766794531-959971b1f444?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="Kenyan wildlife landscape" />
+    <div class="page-banner-overlay">
+      <div class="container page-banner-text">
+        <span class="eyebrow">Our Services</span>
+        <h1>Procurement Services Built for Kenya</h1>
+      </div>
+    </div>
+  </div>
   <div class="page-hero">
     <div class="container">
       <div class="section-tag">Our Services</div>
-      <h1>Procurement Services Built<br>for Kenyan Businesses</h1>
+      <h2 style="font-family:var(--font-head); font-size:clamp(1.4rem,3vw,2rem); font-weight:700; margin-bottom:14px;">Procurement Services Built<br>for Kenyan Businesses</h2>
       <p>Everything from first-time eGP setup to full bid document preparation — with transparent pricing and fast turnaround.</p>
     </div>
   </div>
@@ -882,10 +969,19 @@
 
 <!-- ==================== FAQs ==================== -->
 <div id="faqs" class="page">
+  <div class="page-banner">
+    <img src="https://images.unsplash.com/photo-1741991110666-88115e724741?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="Nairobi skyline, Kenya" />
+    <div class="page-banner-overlay">
+      <div class="container page-banner-text">
+        <span class="eyebrow">FAQs</span>
+        <h1>Your Questions, Answered</h1>
+      </div>
+    </div>
+  </div>
   <div class="page-hero">
     <div class="container">
       <div class="section-tag">FAQs</div>
-      <h1>Common Questions Answered</h1>
+      <h2 style="font-family:var(--font-head); font-size:clamp(1.4rem,3vw,2rem); font-weight:700; margin-bottom:14px;">Common Questions Answered</h2>
       <p>Everything you need to know about eGP registration and tendering in Kenya — answered plainly.</p>
     </div>
   </div>
@@ -949,10 +1045,19 @@
 
 <!-- ==================== CONTACT ==================== -->
 <div id="contact" class="page">
+  <div class="page-banner">
+    <img src="https://images.unsplash.com/photo-1664181220731-06219378d8c7?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="Nairobi street, Kenya" />
+    <div class="page-banner-overlay">
+      <div class="container page-banner-text">
+        <span class="eyebrow">Contact Us</span>
+        <h1>Let's Get You Registered</h1>
+      </div>
+    </div>
+  </div>
   <div class="page-hero">
     <div class="container">
       <div class="section-tag">Contact Us</div>
-      <h1>Let's Get You Registered</h1>
+      <h2 style="font-family:var(--font-head); font-size:clamp(1.4rem,3vw,2rem); font-weight:700; margin-bottom:14px;">Let's Get You Registered</h2>
       <p>Fill the form or send us a WhatsApp — we respond within 2 hours during business hours.</p>
     </div>
   </div>
